@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0f0a07"/>
+<title>Bianca & Anthony · Thank You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Imperial+Script&family=Jost:wght@200;300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F6F1E9;
+    --cream2: #EFE6D8;
+    --wine: #6E1F2A;
+    --gold: #C4A060;
+    --ink: #33302A;
+    --dusty: #9A8070;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 32px 100px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    transition: transform 0.1s linear;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(5,2,1,.12) 0%, rgba(5,2,1,.25) 35%, rgba(5,2,1,.62) 72%, rgba(5,2,1,.82) 100%);
+  }
+  #snow { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+  .hero-content { position: relative; z-index: 3; }
+  .hero-eye {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .5em; text-transform: uppercase;
+    color: rgba(255,255,255,.8); margin-bottom: 24px;
+  }
+  .hero-name {
+    font-family: 'Imperial Script', cursive;
+    font-size: clamp(80px, 24vw, 120px);
+    color: #fff; line-height: 1.0;
+    text-shadow: 0 2px 40px rgba(0,0,0,.6);
+  }
+  .hero-rule {
+    display: flex; align-items: center; gap: 12px;
+    margin: 26px auto; width: 220px;
+  }
+  .hero-rule-line { flex: 1; height: 1px; background: rgba(255,255,255,.4); }
+  .hero-rule-dot { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+  .hero-meta {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .38em; text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 20px; color: rgba(255,255,255,.78); margin-top: 20px;
+  }
+  .scroll-arrow {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 3; color: rgba(255,255,255,.5); font-size: 20px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+  /* ── PARALLAX PHOTO ── */
+  .parallax-wrap {
+    position: relative; overflow: hidden;
+    height: 100svh;
+  }
+  .parallax-wrap img {
+    position: absolute; inset: -20% 0;
+    width: 100%; height: 140%;
+    object-fit: cover; object-position: center;
+    will-change: transform;
+  }
+
+  /* ── FULL BLEED PHOTO ── */
+  .photo-full {
+    position: relative; overflow: hidden;
+  }
+  .photo-full img {
+    width: 100%; display: block;
+    max-height: 100svh; object-fit: cover;
+  }
+  .photo-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,.35); padding: 10px 20px;
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .38em; text-transform: uppercase;
+    color: rgba(255,255,255,.9); text-align: center;
+  }
+
+  /* ── PORTRAIT PHOTO ── */
+  .photo-portrait {
+    background: var(--cream);
+    padding: 48px 28px 20px;
+    text-align: center;
+  }
+  .photo-portrait img {
+    width: min(88vw, 480px); display: block; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(40,28,20,.22);
+  }
+  .photo-portrait .cap {
+    margin-top: 16px;
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .38em; text-transform: uppercase;
+    color: var(--dusty);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    padding: 80px 32px 60px; text-align: center;
+    background: var(--cream);
+  }
+  .section-header.alt { background: var(--cream2); }
+  .section-rule {
+    display: flex; align-items: center; gap: 16px;
+    max-width: 180px; margin: 0 auto 20px;
+  }
+  .section-rule-line { flex: 1; height: 1px; background: var(--gold); opacity: .5; }
+  .section-rule-dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: .8; }
+  .section-numeral {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .45em; color: var(--dusty); text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(44px, 13vw, 72px); color: var(--ink); line-height: 1.0;
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 17px; color: var(--dusty); margin-top: 10px;
+  }
+
+  /* ── LETTER ── */
+  .letter {
+    background: var(--cream2); padding: 80px 36px 88px;
+  }
+  .letter-inner { max-width: 680px; margin: 0 auto; }
+  .letter-eyebrow {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .45em; text-transform: uppercase;
+    color: var(--dusty); text-align: center; margin-bottom: 18px;
+  }
+  .letter-rule {
+    display: flex; align-items: center; gap: 14px;
+    max-width: 140px; margin: 0 auto 32px;
+  }
+  .letter-rule-line { flex: 1; height: 1px; background: var(--gold); opacity: .45; }
+  .letter-rule-dia { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); opacity: .65; }
+  .letter-heading {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: clamp(36px, 10vw, 58px); line-height: 1.1;
+    color: var(--ink); text-align: center; margin-bottom: 44px;
+  }
+  .letter-heading em { font-style: italic; color: var(--wine); }
+  .letter-body { font-size: 20px; line-height: 1.85; color: #3a322a; }
+  .letter-body p + p { margin-top: 24px; }
+  .drop-cap::first-letter {
+    font-family: 'Imperial Script', cursive;
+    font-size: 5.4em; float: left;
+    line-height: .68; margin-right: 8px; margin-top: 14px;
+    color: var(--wine);
+  }
+  .letter-sign { margin-top: 44px; font-style: italic; font-size: 19px; color: var(--wine); }
+  .sig { font-family: 'Imperial Script', cursive; font-size: 42px; color: var(--ink); display: block; margin-top: 8px; line-height: 1.3; }
+
+  /* ── GAP ── */
+  .gap { height: clamp(40px, 7vh, 80px); }
+  .gap-sm { height: clamp(20px, 3vh, 40px); }
+
+  /* ── TWO UP ── */
+  .two-up { display: flex; flex-direction: column; }
+  .two-up img { width: 100%; display: block; height: 50vw; object-fit: cover; }
+  .two-up .divider { height: 4px; background: var(--cream); }
+
+  /* ── CLOSING ── */
+  .closing {
+    position: relative; min-height: 100svh;
+    display: flex; align-items: flex-end;
+    overflow: hidden; text-align: center;
+  }
+  .closing img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%;
+  }
+  .closing-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(8,4,2,.08) 0%, rgba(8,4,2,.42) 50%, rgba(8,4,2,.86) 100%);
+  }
+  #snow2 { position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: .6; }
+  .closing-content { position: relative; z-index: 3; width: 100%; padding: 52px 32px 64px; }
+  .closing-eye {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .48em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 26px;
+  }
+  .closing-name {
+    font-family: 'Imperial Script', cursive;
+    font-size: clamp(58px, 18vw, 96px);
+    color: #fff; line-height: 1.05;
+    text-shadow: 0 2px 32px rgba(110,31,42,.65);
+  }
+  .closing-meta {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .36em; text-transform: uppercase;
+    color: rgba(255,255,255,.42); margin-top: 20px;
+  }
+  .closing-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 19px; color: rgba(255,255,255,.65);
+    margin: 24px auto 0; max-width: 320px; line-height: 1.65;
+  }
+  .closing-dots { color: var(--gold); font-size: 16px; margin-top: 40px; letter-spacing: .65em; opacity: .7; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(54,40,28,.14);
+    padding: 30px 24px; text-align: center;
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .42em; text-transform: uppercase;
+    color: rgba(43,38,32,.42); background: var(--cream);
+  }
+
+  /* ── FADE UP ── */
+  .fu { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+  .fu.on { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fu { opacity: 1; transform: none; }
+    .scroll-arrow { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-bg" src="photos/new_hero.jpg" alt="" fetchpriority="high"/>
+  <div class="hero-overlay"></div>
+  <canvas id="snow"></canvas>
+  <div class="hero-content">
+    <p class="hero-eye">With Love &amp; Gratitude</p>
+    <h1 class="hero-name">Bianca<br/>&amp; Anthony</h1>
+    <div class="hero-rule">
+      <div class="hero-rule-line"></div>
+      <div class="hero-rule-dot"></div>
+      <div class="hero-rule-line"></div>
+    </div>
+    <p class="hero-meta">Antigua, Guatemala &nbsp;·&nbsp; May 23, 2026</p>
+    <p class="hero-tagline">&ldquo;A decade down, forever to go.&rdquo;</p>
+  </div>
+  <div class="scroll-arrow">↓</div>
+</section>
+
+<!-- STATEMENT PHOTO — cathedral parallax -->
+<div class="parallax-wrap fu" data-parallax>
+  <img src="photos/hero_old.jpg" alt="" loading="lazy"/>
+</div>
+
+<!-- LETTER -->
+<section class="letter fu">
+  <div class="letter-inner">
+    <p class="letter-eyebrow">A Letter</p>
+    <div class="letter-rule"><div class="letter-rule-line"></div><div class="letter-rule-dia"></div><div class="letter-rule-line"></div></div>
+    <h2 class="letter-heading">Dear Friends<br/><em>&amp; Family,</em></h2>
+    <div class="letter-body">
+      <p class="drop-cap">When we first started dreaming about our wedding, we kept coming back to one thought: we wanted it to be about more than just one day. We wanted it to be an opportunity to celebrate and pour into the people who have poured into us throughout the last decade of our lives.</p>
+      <p>We couldn&rsquo;t think of a better way to do that than by sharing a new experience together. Our hope was that our wedding would feel like a family vacation &mdash; filled with adventure, laughter, meaningful conversations, and memories we&rsquo;d all carry home long after the weekend ended.</p>
+      <p>Looking back, we couldn&rsquo;t have imagined anything more beautiful. From the rain gently drifting through the temple ruins to dancing and singing along to our favorite songs surrounded by the people we love most, the entire weekend felt magical. There were countless smiles, so many happy tears, and more love than we could have ever hoped for.</p>
+      <p>We are so deeply grateful that you chose to make the journey to Guatemala. The miles you traveled, the time you gave &mdash; it meant everything. Your presence was the greatest gift we could have ever received, and your love is something we will carry into every chapter ahead.</p>
+      <p class="letter-sign">With all our love and gratitude,<span class="sig">Bianca &amp; Anthony</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- THE WELCOME -->
+<div class="section-header fu">
+  <div class="section-rule"><div class="section-rule-line"></div><span class="section-numeral">The Welcome</span><div class="section-rule-line"></div></div>
+  <h2 class="section-title">The Welcome</h2>
+  <p class="section-sub">where the weekend began</p>
+</div>
+<div class="parallax-wrap fu" data-parallax><img src="photos/w063.jpg" loading="lazy" alt=""/></div>
+<div class="photo-caption fu" style="position:relative;background:#000;padding:10px 0;"><span style="font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.8);">A ROOFTOP ABOVE ANTIGUA</span></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/yellow.jpg" loading="lazy" alt=""/><div class="photo-caption">THE WELCOME DINNER</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/w137.jpg" loading="lazy" alt=""/><div class="photo-caption">THEIR STORY, ON SCREEN</div></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="photo-portrait fu"><img src="photos/ruin_w.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+
+<!-- I · ANTIGUA -->
+<div class="section-header fu">
+  <div class="section-rule"><div class="section-rule-line"></div><span class="section-numeral">I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-title">Antigua</h2>
+  <p class="section-sub">the morning it all began</p>
+</div>
+<div class="photo-full fu"><img src="photos/p007.jpg" loading="lazy" alt=""/><div class="photo-caption">THE DETAILS</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p013.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p049.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p094.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p106.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p064.jpg" loading="lazy" alt=""/><div class="photo-caption">HER GIRLS</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p063.jpg" loading="lazy" alt=""/><div class="photo-caption">THE GENTLEMEN</div></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+
+<!-- II · THE VOWS -->
+<div class="section-header alt fu">
+  <div class="section-rule"><div class="section-rule-line"></div><span class="section-numeral">II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-title">The Vows</h2>
+  <p class="section-sub">to have and to hold</p>
+</div>
+<div class="parallax-wrap fu" data-parallax><img src="photos/p162.jpg" loading="lazy" alt=""/></div>
+<div class="photo-caption fu" style="position:relative;background:#000;padding:10px 0;"><span style="font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.8);">HERE COMES THE BRIDE</span></div>
+<div class="gap-sm" style="background:var(--cream2)"></div>
+<div class="photo-full fu"><img src="photos/p181.jpg" loading="lazy" alt=""/><div class="photo-caption">AMONG THE RUINS</div></div>
+<div class="gap-sm" style="background:var(--cream2)"></div>
+<div class="photo-full fu"><img src="photos/p264.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream2)"></div>
+<div class="photo-full fu"><img src="photos/p317.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream2)"></div>
+<div class="photo-portrait fu" style="background:var(--cream2)"><img src="photos/p321.jpg" loading="lazy" alt=""/><p class="cap">JUST MARRIED</p></div>
+<div class="gap-sm" style="background:var(--cream2)"></div>
+<div class="photo-full fu"><img src="photos/p329.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+
+<!-- III · THE CELEBRATION -->
+<div class="section-header fu">
+  <div class="section-rule"><div class="section-rule-line"></div><span class="section-numeral">III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-title">The Celebration</h2>
+  <p class="section-sub">dancing till the candles burned low</p>
+</div>
+<div class="photo-full fu"><img src="photos/p414.jpg" loading="lazy" alt=""/><div class="photo-caption">HER GIRLS · THE RUINS</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p436.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p439.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="parallax-wrap fu" data-parallax><img src="photos/p557.jpg" loading="lazy" alt=""/></div>
+<div class="photo-caption fu" style="position:relative;background:#000;padding:10px 0;"><span style="font-family:'Jost',sans-serif;font-weight:200;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.8);">THE FIRST DANCE</span></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p641.jpg" loading="lazy" alt=""/><div class="photo-caption">A DECADE DOWN, FOREVER TO GO</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p664.jpg" loading="lazy" alt=""/><div class="photo-caption">THE CAKE</div></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="photo-portrait fu"><img src="photos/p655.jpg" loading="lazy" alt=""/><p class="cap">A QUIET MOMENT</p></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p596.jpg" loading="lazy" alt=""/><div class="photo-caption">EVERYONE WE LOVE</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p720.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p721.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p726.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p748.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p749.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p758.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="two-up fu"><img src="photos/p761.jpg" loading="lazy" alt=""/><div class="divider"></div><img src="photos/p768.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p464.jpg" loading="lazy" alt=""/></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p786.jpg" loading="lazy" alt=""/><div class="photo-caption">FIREWORKS OVER THE RUINS</div></div>
+<div class="gap-sm" style="background:var(--cream)"></div>
+<div class="photo-full fu"><img src="photos/p787.jpg" loading="lazy" alt=""/></div>
+<div class="gap fu" style="background:var(--cream)"></div>
+
+<!-- CLOSING -->
+<div class="closing fu">
+  <img src="photos/p655.jpg" loading="lazy" alt=""/>
+  <div class="closing-overlay"></div>
+  <canvas id="snow2"></canvas>
+  <div class="closing-content">
+    <p class="closing-eye">Thank You</p>
+    <div class="closing-name">Bianca<br/>&amp; Anthony</div>
+    <p class="closing-meta">Antigua, Guatemala &nbsp;·&nbsp; May 23, 2026</p>
+    <p class="closing-quote">For the miles, the love, and the memories we&rsquo;ll carry forever.</p>
+    <p class="closing-dots">✦ &nbsp; ✦ &nbsp; ✦</p>
+  </div>
+</div>
+
+<footer>Bianca &amp; Anthony &nbsp;·&nbsp; 05 &nbsp;·&nbsp; 23 &nbsp;·&nbsp; 26</footer>
+
+<script>
+// Snow
+function makeSnow(id, n) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H, fl = [], paused = false;
+  const resize = () => { W = c.width = c.parentElement.offsetWidth; H = c.height = c.parentElement.offsetHeight; };
+  resize(); window.addEventListener('resize', resize);
+  new IntersectionObserver(([e]) => { paused = !e.isIntersecting; }).observe(c.parentElement);
+  for (let i=0;i<n;i++) fl.push({x:Math.random()*2000,y:Math.random()*2000,r:Math.random()*2.2+.4,s:Math.random()*.55+.18,d:(Math.random()-.5)*.35,o:Math.random()*.5+.2});
+  (function draw() {
+    if (!paused) {
+      ctx.clearRect(0,0,W,H);
+      fl.forEach(f => {
+        ctx.beginPath(); ctx.arc(f.x%W,f.y%H,f.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,255,255,${f.o})`; ctx.fill();
+        f.y+=f.s; f.x+=f.d;
+        if(f.y>H){f.y=-4;f.x=Math.random()*W;}
+        if(f.x>W)f.x=0; if(f.x<0)f.x=W;
+      });
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+makeSnow('snow', 120);
+makeSnow('snow2', 70);
+
+// Parallax
+const parallaxEls = document.querySelectorAll('[data-parallax]');
+function onScroll() {
+  parallaxEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    const pct = rect.top / window.innerHeight;
+    const img = el.querySelector('img');
+    if (img) img.style.transform = `translateY(${pct * 40}px)`;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Fade up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
